@@ -681,12 +681,12 @@ ARM Macro Assembler    Page 11
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
 interwork --depend=blinkled\startup_stm32l476xx.d -oblinkled\startup_stm32l476x
-x.o -I.\RTE\_BlinkLed -ID:\STMicroelectronics\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\C
-ore\Include -ID:\STMicroelectronics\Arm\Packs\Keil\STM32L4xx_DFP\2.4.0\Drivers\
-CMSIS\Device\ST\STM32L4xx\Include --predefine="__EVAL SETA 1" --predefine="__MI
-CROLIB SETA 1" --predefine="__UVISION_VERSION SETA 531" --predefine="_RTE_ SETA
- 1" --predefine="STM32L476xx SETA 1" --predefine="_RTE_ SETA 1" --list=startup_
-stm32l476xx.lst startup_stm32l476xx.s
+x.o -I.\RTE\_BlinkLed -ID:\Programas\STMicroelectronics\Keil_v5\ARM\PACK\ARM\CM
+SIS\5.7.0\CMSIS\Core\Include -ID:\Programas\STMicroelectronics\Keil_v5\ARM\PACK
+\Keil\STM32L4xx_DFP\2.4.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include --predefine
+="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION
+ SETA 531" --predefine="_RTE_ SETA 1" --predefine="STM32L476xx SETA 1" --predef
+ine="_RTE_ SETA 1" --list=startup_stm32l476xx.lst startup_stm32l476xx.s
 
 
 

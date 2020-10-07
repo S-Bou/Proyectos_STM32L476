@@ -2,7 +2,7 @@ blinkled\system_stm32l4xx.o: ../Src/system_stm32l4xx.c
 blinkled\system_stm32l4xx.o: ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h
 blinkled\system_stm32l4xx.o: ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l476xx.h
 blinkled\system_stm32l4xx.o: ../Drivers/CMSIS/Include/core_cm4.h
-blinkled\system_stm32l4xx.o: D:\STMicroelectronics\Keil_v531\ARM\ARMCC\Bin\..\include\stdint.h
+blinkled\system_stm32l4xx.o: D:\Programas\STMicroelectronics\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 blinkled\system_stm32l4xx.o: ../Drivers/CMSIS/Include/cmsis_version.h
 blinkled\system_stm32l4xx.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 blinkled\system_stm32l4xx.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -14,7 +14,7 @@ blinkled\system_stm32l4xx.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_r
 blinkled\system_stm32l4xx.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h
 blinkled\system_stm32l4xx.o: ../Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h
 blinkled\system_stm32l4xx.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
-blinkled\system_stm32l4xx.o: D:\STMicroelectronics\Keil_v531\ARM\ARMCC\Bin\..\include\stddef.h
+blinkled\system_stm32l4xx.o: D:\Programas\STMicroelectronics\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 blinkled\system_stm32l4xx.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_rcc_ex.h
 blinkled\system_stm32l4xx.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_exti.h
 blinkled\system_stm32l4xx.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h
