@@ -1,0 +1,14 @@
+/* PASO 4: Enable interrupt */
+
+HAL_NVIC_EnableIRQ( EXTI0_IRQn );
+
+HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+
+netplwiz
+
+C:\Users\bouyo\AppData\Local\Arm\Packs
+
+shell:startup
+
+subst P: /D
+subst P: D:\Programas\STMicroelectronics\Repository\STM32Cube_FW_L4_V1.15.1
