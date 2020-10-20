@@ -13,13 +13,11 @@ static TIM_HandleTypeDef timer_handle;
 /********************************************************************************************************************************************************/
 /**
   * @brief  This function...
-  * @param  None
+  * @param  Number of microseconds
   * @retval None
   */
 void delay_us(uint32_t microseconds)
 {
-		  // incluye algo que falta y es indispensable
-
 		uint32_t overflows;
 		uint32_t partial;
 		uint32_t cnt_initial;
@@ -51,7 +49,6 @@ void delay_us(uint32_t microseconds)
   */
 void delay_init(void)
 {
-    // poner en macha el RCC del relpoj
 		__HAL_RCC_TIM6_CLK_ENABLE();
 	
     timer_handle.Instance = TIM6;
