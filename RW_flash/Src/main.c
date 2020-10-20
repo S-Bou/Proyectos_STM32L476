@@ -14,7 +14,6 @@
 #include <stdio.h>
 #include "stm32l4xx_hal.h"
 #include "rwflash.h"
-#include "MY_FLASH.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -22,7 +21,6 @@
 /* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
-static void GPIO_Init(void);
 //static void Error_Handler(void);
 //void fputc_SetXY(uint16_t x, uint16_t y);
 
@@ -36,18 +34,12 @@ int main(void)
   /* Configure the System clock to 180 MHz */
   SystemClock_Config();
 	/*User code*/
-	GPIO_Init();
-	
 	WritePage();
-
   /* Infinite loop */
   while (1)
   {
-		//printf("Hello world !!!!\n");
-		
-//		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-//		HAL_Delay(1000);
-		//delay_us(100000);
+//		printf("Hello world !!!!\n");
+//		HAL_Delay(2000);
   }
 }
 /**
@@ -104,30 +96,6 @@ static void SystemClock_Config(void)
     /* Initialization Error */
     while(1);
   }
-}
-
-/**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
-static void GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : GPIO_PIN_5 */
-  GPIO_InitStruct.Pin = GPIO_PIN_5;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
 }
 
 #ifdef  USE_FULL_ASSERT

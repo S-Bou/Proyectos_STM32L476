@@ -4,7 +4,6 @@
 ".\stm32l476rg_nucleo\output\stm32l4xx_it.o"
 ".\stm32l476rg_nucleo\output\main.o"
 ".\stm32l476rg_nucleo\output\fputc_debug.o"
-".\stm32l476rg_nucleo\output\delayus.o"
 ".\stm32l476rg_nucleo\output\rwflash.o"
 ".\stm32l476rg_nucleo\output\stm32l4xx_hal_crc_ex.o"
 ".\stm32l476rg_nucleo\output\stm32l4xx_ll_sdmmc.o"

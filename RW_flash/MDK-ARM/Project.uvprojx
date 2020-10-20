@@ -429,11 +429,6 @@
               <FilePath>..\Src\fputc_debug.c</FilePath>
             </File>
             <File>
-              <FileName>delayus.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\delayus.c</FilePath>
-            </File>
-            <File>
               <FileName>rwflash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\rwflash.c</FilePath>
