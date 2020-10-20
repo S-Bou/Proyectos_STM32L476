@@ -44,7 +44,7 @@ int main(void)
 		
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
 		//HAL_Delay(1000);
-		delay_us(1000000);
+		delay_us(10000);
   }
 }
 /**
