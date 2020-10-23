@@ -22,7 +22,7 @@ void delay_us(uint32_t microseconds)
 		uint32_t partial;
 		uint32_t cnt_initial;
 
-		overflows = microseconds/65536 + 1; 
+		overflows = microseconds/65536 - 1; 
 		partial = microseconds % 65536;
 		cnt_initial = 65536 - partial;
 
@@ -52,7 +52,7 @@ void delay_init(void)
 		__HAL_RCC_TIM6_CLK_ENABLE();
 	
     timer_handle.Instance = TIM6;
-		timer_handle.Init.Prescaler = (SystemCoreClock/1000000) +1;
+		timer_handle.Init.Prescaler = (SystemCoreClock/1000000) - 1;
 		timer_handle.Init.CounterMode = TIM_COUNTERMODE_UP;
 		timer_handle.Init.Period = 65535;
 		timer_handle.Init.ClockDivision = 0;

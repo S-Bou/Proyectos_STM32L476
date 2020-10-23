@@ -15,10 +15,33 @@ extern "C" {
 #endif
 /********************************************************************************************************************************************************/
 #include "stm32l4xx_hal.h"
-#define DIR_MEM_INIT 0x0807F800
+#include "stdio.h"
+#define ALL_OK 666
 /********************************************************************************************************************************************************/
-void ClearPage(void);
-void WritePage(void);
+/**
+  * @brief  Flash direction and data structure definition
+  */
+typedef struct
+{
+	uint32_t DDU;    /*This parameter contain the direction defined by the user.*/
+	
+	uint32_t PAGE;	/*This parameter contain the number of page where start the direction of memory.*/
+	
+} FlashDirAndPage;
+
+/* Peripheral Control functions  **********************************************/
+/** @addtogroup FLASH_Exported_Functions_Group2
+  * @{
+  */
+void InitFlashRW(uint32_t address, uint32_t page);
+
+uint32_t WritePageInFlash(uint64_t userData[]);
+
+uint32_t  GetMemDir(void);
+
+uint32_t  GetPageDir(void);
+
+void GPIO_Init(void);
 /********************************************************************************************************************************************************/
 #ifdef __cplusplus
 }

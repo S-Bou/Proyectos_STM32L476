@@ -10,34 +10,19 @@
 #include "rwflash.h"
 #include "string.h"
 /********************************************************************************************************************************************************/
-
+FlashDirAndPage FlashDirStruct;
 /********************************************************************************************************************************************************/
 /**
-  * @brief  This function...
+  * @brief  This function 
   * @param  None
   * @retval None
   */
-void ClearPage(void)
+void InitFlashRW(uint32_t address, uint32_t page)
 {
-			FLASH_EraseInitTypeDef EraseInitStruct;
-			
-			EraseInitStruct.TypeErase = FLASH_TYPEERASE_PAGES;
-			EraseInitStruct.Banks       = FLASH_BANK_1;
-			EraseInitStruct.Page         = 255;
-			EraseInitStruct.NbPages   = 1;
-
-      uint32_t PageError = 0;
-
-      HAL_FLASH_Unlock();
+	GPIO_Init();
 	
-      __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR | FLASH_FLAG_PGSERR | FLASH_FLAG_PGAERR);
-	
-      if(HAL_FLASHEx_Erase(&EraseInitStruct, &PageError) != HAL_OK)
-			{
-    	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);	// indicator for erasing fails
-      }
-			
-			HAL_FLASH_Lock();
+	FlashDirStruct.DDU   = address;
+	FlashDirStruct.PAGE = page;
 }
 /********************************************************************************************************************************************************/
 /**
@@ -45,41 +30,84 @@ void ClearPage(void)
   * @param  None
   * @retval None
   */
-void WritePage(void)
+uint32_t WritePageInFlash(uint64_t userData[])
 {
+	uint32_t ErrorCode = 0;
+	uint32_t addres = GetMemDir();
+	uint32_t page =  GetPageDir();
 	
-	int8_t mydata[] = "Hola";
-	uint64_t DirMEM = 0x0807F800;
-	uint64_t userDATA = ((uint64_t) mydata[0])+((uint64_t) mydata[1]<<8)+((uint64_t) mydata[2]<<16)+((uint64_t) mydata[3]<<24);
 	FLASH_EraseInitTypeDef EraseInitStruct;
 
 	EraseInitStruct.TypeErase = FLASH_TYPEERASE_PAGES;
-	EraseInitStruct.Banks        = FLASH_BANK_1;
-	EraseInitStruct.Page         = 255;
-	EraseInitStruct.NbPages    = 1;
-
-	uint32_t PageError = 0;
+	EraseInitStruct.Page         = page ;
 
 	HAL_FLASH_Unlock();
 
 	  /* Clear OPTVERR bit set on virgin samples */
   __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_OPTVERR); 
 	
-	if(HAL_FLASHEx_Erase(&EraseInitStruct, &PageError) != HAL_OK)
+	if(HAL_FLASHEx_Erase(&EraseInitStruct, &ErrorCode) != HAL_OK)
 	{
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);	// indicator for erasing fails
+		return ErrorCode = HAL_FLASH_GetError();
 	}
-//	for(uint8_t i=0; i<strlen(mydata); i++)
-//		for(uint8_t i=0; i<=1; i++)
-//	{
-		if(HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, DirMEM, userDATA) != HAL_OK)
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);	// indicator for program fails
-		}
-//		DirMEM+=8;
-//		HAL_Delay(500);
-//	}
 	
+	for(uint32_t i = 0; i < sizeof(userData); i++)
+	{
+		if(HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, addres, userData[i]) == HAL_OK)
+		{
+			addres += 8;
+		}else{
+			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);	// indicator for program fails
+			return ErrorCode = HAL_FLASH_GetError();
+		}	
+	}
 	HAL_FLASH_Lock();
+	
+	return ALL_OK;
+}
+/********************************************************************************************************************************************************/
+/**
+  * @brief  This function...
+  * @param  None
+  * @retval None
+  */
+uint32_t  GetMemDir(void)
+{
+	return FlashDirStruct.DDU;
+}
+/********************************************************************************************************************************************************/
+/**
+  * @brief  This function...
+  * @param  None
+  * @retval None
+  */
+uint32_t  GetPageDir(void)
+{
+	return FlashDirStruct.PAGE;
+}
+/********************************************************************************************************************************************************/
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+void GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : GPIO_PIN_5 */
+  GPIO_InitStruct.Pin = GPIO_PIN_5;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
 }
 /********************************************************************************************************************************************************/

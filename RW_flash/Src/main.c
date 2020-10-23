@@ -17,8 +17,11 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
+#define DIR_MEM_INIT 0x0807F800
+#define PAGE_MEM_INIT 255
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+	uint64_t DATA[4] = {0x1111111111111111, 0x2222222222222222, 0x3333333333333333, 0x4444444444444444};
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 //static void Error_Handler(void);
@@ -34,12 +37,20 @@ int main(void)
   /* Configure the System clock to 180 MHz */
   SystemClock_Config();
 	/*User code*/
-	WritePage();
+	InitFlashRW(DIR_MEM_INIT, PAGE_MEM_INIT);
+	WritePageInFlash(DATA);
   /* Infinite loop */
   while (1)
   {
-//		printf("Hello world !!!!\n");
-//		HAL_Delay(2000);
+		
+		for(uint8_t i = 0; i <= 3; i++)
+		{
+			
+			printf("En la direccion %#x hay: ", GetMemDir() + i*8);
+			printf("%#x%x\n", *((uint32_t *)GetMemDir() + i*2), *((uint32_t *)GetMemDir() + (i*2+1)));
+			
+			HAL_Delay(100);
+		}
   }
 }
 /**
