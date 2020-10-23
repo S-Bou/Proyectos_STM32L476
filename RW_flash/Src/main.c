@@ -18,11 +18,12 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #define DIR_MEM_INIT 0x0807F800
-#define BANK_NUM FLASH_BANK_1
+#define BANK_NUM FLASH_BANK_1  /*Not used if only wtite in determinated page */
 #define PAGE_MEM_INIT 255
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-	uint64_t DATA[4] = {0x1111111111111111, 0x2222222222222222, 0x3333333333333333, 0x4444444444444444};
+uint64_t DATA[4] = {0x1111111111111111, 0x2222222222222222, 0x3333333333333333, 0x4444444444444444};
+//uint64_t DATA[4] = {90, 30, 60, 90}; /*Example of  vector with position in degrees of some servos */
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 //static void Error_Handler(void);

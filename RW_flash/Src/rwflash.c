@@ -65,7 +65,7 @@ uint32_t WritePageInFlash(uint64_t userData[])
 	for(uint32_t i = 0; i < FlashDirStruct.LOND; i++)
 	{
 		/*Program double word of a row at a specified address */
-		if(HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, addres, userData[i]) == HAL_OK)
+		if(HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, addres, (uint64_t)userData[i]) == HAL_OK)
 		{
 			addres += 8;	/*Increase the direction to write next word */
 		}else{
