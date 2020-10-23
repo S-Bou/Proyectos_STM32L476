@@ -35,6 +35,7 @@ uint32_t WritePageInFlash(uint64_t userData[])
 	uint32_t ErrorCode = 0;
 	uint32_t addres = GetMemDir();
 	uint32_t page =  GetPageDir();
+	FlashDirStruct.LOND = sizeof(userData);
 	
 	FLASH_EraseInitTypeDef EraseInitStruct;
 
@@ -52,7 +53,7 @@ uint32_t WritePageInFlash(uint64_t userData[])
 		return ErrorCode = HAL_FLASH_GetError();
 	}
 	
-	for(uint32_t i = 0; i < sizeof(userData); i++)
+	for(uint32_t i = 0; i < FlashDirStruct.LOND; i++)
 	{
 		if(HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, addres, userData[i]) == HAL_OK)
 		{
@@ -65,6 +66,21 @@ uint32_t WritePageInFlash(uint64_t userData[])
 	HAL_FLASH_Lock();
 	
 	return ALL_OK;
+}
+/********************************************************************************************************************************************************/
+/**
+  * @brief  This function...
+  * @param  None
+  * @retval None
+  */
+void ReadMemDir(uint32_t addres)
+{
+	for(uint8_t i = 0; i < FlashDirStruct.LOND; i++)
+	{
+		printf("En la direccion %#x hay: ", GetMemDir() + i*8);
+		printf("%#x%x\n", *((uint32_t *)GetMemDir() + i*2), *((uint32_t *)GetMemDir() + (i*2+1)));
+		HAL_Delay(100);
+	}
 }
 /********************************************************************************************************************************************************/
 /**

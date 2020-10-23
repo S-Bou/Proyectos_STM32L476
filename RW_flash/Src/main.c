@@ -42,15 +42,7 @@ int main(void)
   /* Infinite loop */
   while (1)
   {
-		
-		for(uint8_t i = 0; i <= 3; i++)
-		{
-			
-			printf("En la direccion %#x hay: ", GetMemDir() + i*8);
-			printf("%#x%x\n", *((uint32_t *)GetMemDir() + i*2), *((uint32_t *)GetMemDir() + (i*2+1)));
-			
-			HAL_Delay(100);
-		}
+		ReadMemDir(DIR_MEM_INIT);
   }
 }
 /**

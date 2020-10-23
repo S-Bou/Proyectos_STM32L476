@@ -27,6 +27,8 @@ typedef struct
 	
 	uint32_t PAGE;	/*This parameter contain the number of page where start the direction of memory.*/
 	
+	uint32_t LOND;
+	
 } FlashDirAndPage;
 
 /* Peripheral Control functions  **********************************************/
@@ -36,6 +38,8 @@ typedef struct
 void InitFlashRW(uint32_t address, uint32_t page);
 
 uint32_t WritePageInFlash(uint64_t userData[]);
+
+void ReadMemDir(uint32_t addres);
 
 uint32_t  GetMemDir(void);
 
