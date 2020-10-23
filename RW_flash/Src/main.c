@@ -18,6 +18,7 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 #define DIR_MEM_INIT 0x0807F800
+#define BANK_NUM FLASH_BANK_1
 #define PAGE_MEM_INIT 255
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -37,11 +38,14 @@ int main(void)
   /* Configure the System clock to 180 MHz */
   SystemClock_Config();
 	/*User code*/
-	InitFlashRW(DIR_MEM_INIT, PAGE_MEM_INIT);
+	/**/
+	InitFlashRW(BANK_NUM, DIR_MEM_INIT, PAGE_MEM_INIT);
+	/**/
 	WritePageInFlash(DATA);
   /* Infinite loop */
   while (1)
   {
+		/**/
 		ReadMemDir(DIR_MEM_INIT);
   }
 }

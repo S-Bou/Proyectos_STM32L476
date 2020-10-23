@@ -4,24 +4,28 @@
   * @author  Bou
   * @version V1.0.0
   * @date    18-October-2020
-  * @brief   This file provides...
+  * @brief   This file provides the definition of the functions to manage the flash memory.
   *******************************************************************************************************************************************************
  */
 #include "rwflash.h"
 #include "string.h"
 /********************************************************************************************************************************************************/
+/*Declaration of struct to store the information give by user.*/
 FlashDirAndPage FlashDirStruct;
 /********************************************************************************************************************************************************/
 /**
-  * @brief  This function 
-  * @param  None
+  * @brief  This function configure a led to indicate if ocurs any fail and set the direction of where user whis start to write memory 
+  * @param  Address specifies the address to be programmed.
+  * @param  Page specifies the page to be programmed.
   * @retval None
   */
-void InitFlashRW(uint32_t address, uint32_t page)
+void InitFlashRW(uint32_t bank, uint32_t address, uint32_t page)
 {
-	GPIO_Init();
-	
+	/*Call to configuration of pin to use user led*/
+	GPIO_Init_UserLED();
+	/*Set the address given by user in the struct*/
 	FlashDirStruct.DDU   = address;
+	/*Set the page given by user in the struct*/
 	FlashDirStruct.PAGE = page;
 }
 /********************************************************************************************************************************************************/
@@ -40,7 +44,7 @@ uint32_t WritePageInFlash(uint64_t userData[])
 	FLASH_EraseInitTypeDef EraseInitStruct;
 
 	EraseInitStruct.TypeErase = FLASH_TYPEERASE_PAGES;
-	EraseInitStruct.Page         = page ;
+	EraseInitStruct.Page = page ;
 
 	HAL_FLASH_Unlock();
 
@@ -108,7 +112,7 @@ uint32_t  GetPageDir(void)
   * @param None
   * @retval None
   */
-void GPIO_Init(void)
+void GPIO_Init_UserLED(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 

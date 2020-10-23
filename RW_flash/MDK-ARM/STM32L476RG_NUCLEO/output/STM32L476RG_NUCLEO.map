@@ -101,12 +101,12 @@ Section Cross References
     main.o(i.main) refers to rwflash.o(i.WritePageInFlash) for WritePageInFlash
     main.o(i.main) refers to rwflash.o(i.ReadMemDir) for ReadMemDir
     main.o(i.main) refers to main.o(.data) for DATA
-    rwflash.o(i.GPIO_Init) refers to memseta.o(.text) for __aeabi_memclr4
-    rwflash.o(i.GPIO_Init) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_WritePin) for HAL_GPIO_WritePin
-    rwflash.o(i.GPIO_Init) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
+    rwflash.o(i.GPIO_Init_UserLED) refers to memseta.o(.text) for __aeabi_memclr4
+    rwflash.o(i.GPIO_Init_UserLED) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_WritePin) for HAL_GPIO_WritePin
+    rwflash.o(i.GPIO_Init_UserLED) refers to stm32l4xx_hal_gpio.o(i.HAL_GPIO_Init) for HAL_GPIO_Init
     rwflash.o(i.GetMemDir) refers to rwflash.o(.bss) for FlashDirStruct
     rwflash.o(i.GetPageDir) refers to rwflash.o(.bss) for FlashDirStruct
-    rwflash.o(i.InitFlashRW) refers to rwflash.o(i.GPIO_Init) for GPIO_Init
+    rwflash.o(i.InitFlashRW) refers to rwflash.o(i.GPIO_Init_UserLED) for GPIO_Init_UserLED
     rwflash.o(i.InitFlashRW) refers to rwflash.o(.bss) for FlashDirStruct
     rwflash.o(i.ReadMemDir) refers to rwflash.o(i.GetMemDir) for GetMemDir
     rwflash.o(i.ReadMemDir) refers to printf5.o(i.__0printf$5) for __2printf
@@ -4308,7 +4308,7 @@ Image Symbol Table
     i.FLASH_Program_Fast                     0x080003cc   Section        0  stm32l4xx_hal_flash.o(i.FLASH_Program_Fast)
     FLASH_Program_Fast                       0x080003cd   Thumb Code    60  stm32l4xx_hal_flash.o(i.FLASH_Program_Fast)
     i.FLASH_WaitForLastOperation             0x0800040c   Section        0  stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation)
-    i.GPIO_Init                              0x0800049c   Section        0  rwflash.o(i.GPIO_Init)
+    i.GPIO_Init_UserLED                      0x0800049c   Section        0  rwflash.o(i.GPIO_Init_UserLED)
     i.GetMemDir                              0x080004f0   Section        0  rwflash.o(i.GetMemDir)
     i.GetPageDir                             0x080004fc   Section        0  rwflash.o(i.GetPageDir)
     i.HAL_Delay                              0x08000508   Section        0  stm32l4xx_hal.o(i.HAL_Delay)
@@ -4358,14 +4358,14 @@ Image Symbol Table
     _printf_core                             0x08001765   Thumb Code   658  printf5.o(i._printf_core)
     i.fputc                                  0x08001a2c   Section        0  fputc_debug.o(i.fputc)
     i.main                                   0x08001a64   Section        0  main.o(i.main)
-    .constdata                               0x08001a8c   Section       72  system_stm32l4xx.o(.constdata)
+    .constdata                               0x08001a90   Section       72  system_stm32l4xx.o(.constdata)
     .data                                    0x20000000   Section        4  system_stm32l4xx.o(.data)
     .data                                    0x20000008   Section       32  main.o(.data)
     .data                                    0x20000028   Section        8  fputc_debug.o(.data)
     .data                                    0x20000030   Section       32  stm32l4xx_hal_flash.o(.data)
     .data                                    0x20000050   Section       12  stm32l4xx_hal.o(.data)
-    .bss                                     0x2000005c   Section       12  rwflash.o(.bss)
-    STACK                                    0x20000068   Section     1024  startup_stm32l476xx.o(STACK)
+    .bss                                     0x2000005c   Section       16  rwflash.o(.bss)
+    STACK                                    0x20000070   Section     1024  startup_stm32l476xx.o(STACK)
 
     Global Symbols
 
@@ -4532,7 +4532,7 @@ Image Symbol Table
     FLASH_FlushCaches                        0x080002b9   Thumb Code   100  stm32l4xx_hal_flash_ex.o(i.FLASH_FlushCaches)
     FLASH_PageErase                          0x0800035d   Thumb Code    66  stm32l4xx_hal_flash_ex.o(i.FLASH_PageErase)
     FLASH_WaitForLastOperation               0x0800040d   Thumb Code   134  stm32l4xx_hal_flash.o(i.FLASH_WaitForLastOperation)
-    GPIO_Init                                0x0800049d   Thumb Code    80  rwflash.o(i.GPIO_Init)
+    GPIO_Init_UserLED                        0x0800049d   Thumb Code    80  rwflash.o(i.GPIO_Init_UserLED)
     GetMemDir                                0x080004f1   Thumb Code     6  rwflash.o(i.GetMemDir)
     GetPageDir                               0x080004fd   Thumb Code     6  rwflash.o(i.GetPageDir)
     HAL_Delay                                0x08000509   Thumb Code    36  stm32l4xx_hal.o(i.HAL_Delay)
@@ -4556,7 +4556,7 @@ Image Symbol Table
     HAL_RCC_OscConfig                        0x08000d21   Thumb Code  1772  stm32l4xx_hal_rcc.o(i.HAL_RCC_OscConfig)
     HAL_SYSTICK_Config                       0x0800141d   Thumb Code    52  stm32l4xx_hal_cortex.o(i.HAL_SYSTICK_Config)
     HardFault_Handler                        0x08001451   Thumb Code     4  stm32l4xx_it.o(i.HardFault_Handler)
-    InitFlashRW                              0x08001455   Thumb Code    18  rwflash.o(i.InitFlashRW)
+    InitFlashRW                              0x08001455   Thumb Code    20  rwflash.o(i.InitFlashRW)
     MemManage_Handler                        0x0800146d   Thumb Code     4  stm32l4xx_it.o(i.MemManage_Handler)
     NMI_Handler                              0x08001471   Thumb Code     2  stm32l4xx_it.o(i.NMI_Handler)
     PendSV_Handler                           0x08001473   Thumb Code     2  stm32l4xx_it.o(i.PendSV_Handler)
@@ -4573,12 +4573,12 @@ Image Symbol Table
     __scatterload_null                       0x08001753   Thumb Code     2  handlers.o(i.__scatterload_null)
     __scatterload_zeroinit                   0x08001755   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
     fputc                                    0x08001a2d   Thumb Code    52  fputc_debug.o(i.fputc)
-    main                                     0x08001a65   Thumb Code    32  main.o(i.main)
-    AHBPrescTable                            0x08001a8c   Data          16  system_stm32l4xx.o(.constdata)
-    APBPrescTable                            0x08001a9c   Data           8  system_stm32l4xx.o(.constdata)
-    MSIRangeTable                            0x08001aa4   Data          48  system_stm32l4xx.o(.constdata)
-    Region$$Table$$Base                      0x08001ad4   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08001af4   Number         0  anon$$obj.o(Region$$Table)
+    main                                     0x08001a65   Thumb Code    34  main.o(i.main)
+    AHBPrescTable                            0x08001a90   Data          16  system_stm32l4xx.o(.constdata)
+    APBPrescTable                            0x08001aa0   Data           8  system_stm32l4xx.o(.constdata)
+    MSIRangeTable                            0x08001aa8   Data          48  system_stm32l4xx.o(.constdata)
+    Region$$Table$$Base                      0x08001ad8   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08001af8   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x20000000   Data           4  system_stm32l4xx.o(.data)
     DATA                                     0x20000008   Data          32  main.o(.data)
     __stdout                                 0x20000028   Data           4  fputc_debug.o(.data)
@@ -4587,8 +4587,8 @@ Image Symbol Table
     uwTick                                   0x20000050   Data           4  stm32l4xx_hal.o(.data)
     uwTickPrio                               0x20000054   Data           4  stm32l4xx_hal.o(.data)
     uwTickFreq                               0x20000058   Data           4  stm32l4xx_hal.o(.data)
-    FlashDirStruct                           0x2000005c   Data          12  rwflash.o(.bss)
-    __initial_sp                             0x20000468   Data           0  startup_stm32l476xx.o(STACK)
+    FlashDirStruct                           0x2000005c   Data          16  rwflash.o(.bss)
+    __initial_sp                             0x20000470   Data           0  startup_stm32l476xx.o(STACK)
 
 
 
@@ -4598,9 +4598,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001b50, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00001b54, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001af4, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00001af8, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -4630,7 +4630,7 @@ Memory Map of the image
     0x080003a4   0x080003a4   0x00000028   Code   RO         3210    i.FLASH_Program_DoubleWord  stm32l4xx_hal_flash.o
     0x080003cc   0x080003cc   0x00000040   Code   RO         3211    i.FLASH_Program_Fast  stm32l4xx_hal_flash.o
     0x0800040c   0x0800040c   0x00000090   Code   RO         3212    i.FLASH_WaitForLastOperation  stm32l4xx_hal_flash.o
-    0x0800049c   0x0800049c   0x00000054   Code   RO          634    i.GPIO_Init         rwflash.o
+    0x0800049c   0x0800049c   0x00000054   Code   RO          634    i.GPIO_Init_UserLED  rwflash.o
     0x080004f0   0x080004f0   0x0000000c   Code   RO          635    i.GetMemDir         rwflash.o
     0x080004fc   0x080004fc   0x0000000c   Code   RO          636    i.GetPageDir        rwflash.o
     0x08000508   0x08000508   0x00000028   Code   RO         7877    i.HAL_Delay         stm32l4xx_hal.o
@@ -4679,23 +4679,24 @@ Memory Map of the image
     0x08001764   0x08001764   0x000002c6   Code   RO        11018    i._printf_core      mc_w.l(printf5.o)
     0x08001a2a   0x08001a2a   0x00000002   PAD
     0x08001a2c   0x08001a2c   0x00000038   Code   RO          587    i.fputc             fputc_debug.o
-    0x08001a64   0x08001a64   0x00000028   Code   RO          546    i.main              main.o
-    0x08001a8c   0x08001a8c   0x00000048   Data   RO          432    .constdata          system_stm32l4xx.o
-    0x08001ad4   0x08001ad4   0x00000020   Data   RO        11176    Region$$Table       anon$$obj.o
+    0x08001a64   0x08001a64   0x0000002c   Code   RO          546    i.main              main.o
+    0x08001a90   0x08001a90   0x00000048   Data   RO          432    .constdata          system_stm32l4xx.o
+    0x08001ad8   0x08001ad8   0x00000020   Data   RO        11176    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08001af4, Size: 0x00000468, Max: 0x00018000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08001af8, Size: 0x00000470, Max: 0x00018000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08001af4   0x00000004   Data   RW          433    .data               system_stm32l4xx.o
-    0x20000004   0x08001af8   0x00000004   PAD
-    0x20000008   0x08001afc   0x00000020   Data   RW          547    .data               main.o
-    0x20000028   0x08001b1c   0x00000008   Data   RW          590    .data               fputc_debug.o
-    0x20000030   0x08001b24   0x00000020   Data   RW         3224    .data               stm32l4xx_hal_flash.o
-    0x20000050   0x08001b44   0x0000000c   Data   RW         7905    .data               stm32l4xx_hal.o
-    0x2000005c        -       0x0000000c   Zero   RW          640    .bss                rwflash.o
-    0x20000068        -       0x00000400   Zero   RW        10860    STACK               startup_stm32l476xx.o
+    0x20000000   0x08001af8   0x00000004   Data   RW          433    .data               system_stm32l4xx.o
+    0x20000004   0x08001afc   0x00000004   PAD
+    0x20000008   0x08001b00   0x00000020   Data   RW          547    .data               main.o
+    0x20000028   0x08001b20   0x00000008   Data   RW          590    .data               fputc_debug.o
+    0x20000030   0x08001b28   0x00000020   Data   RW         3224    .data               stm32l4xx_hal_flash.o
+    0x20000050   0x08001b48   0x0000000c   Data   RW         7905    .data               stm32l4xx_hal.o
+    0x2000005c        -       0x00000010   Zero   RW          640    .bss                rwflash.o
+    0x2000006c   0x08001b54   0x00000004   PAD
+    0x20000070        -       0x00000400   Zero   RW        10860    STACK               startup_stm32l476xx.o
 
 
 ==============================================================================
@@ -4706,8 +4707,8 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
         56          4          0          8          0      33021   fputc_debug.o
-       132          8          0         32          0       2282   main.o
-       420         72          0          0         12       4288   rwflash.o
+       136         10          0         32          0       2322   main.o
+       420         70          0          0         16       4352   rwflash.o
         36          8        392          0       1024        828   startup_stm32l476xx.o
        196         32          0         12          0       4419   stm32l4xx_hal.o
        278         22          0          0          0      33510   stm32l4xx_hal_cortex.o
@@ -4721,9 +4722,9 @@ Image component sizes
         80         12         72          4          0       1289   system_stm32l4xx.o
 
     ----------------------------------------------------------------------
-      5368        360        496         92       1036     872905   Object Totals
+      5372        360        496         92       1044     873009   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         8          0          0          4          0          0   (incl. Padding)
+         8          0          0          4          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -4765,15 +4766,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      6404        432        496         92       1036     869289   Grand Totals
-      6404        432        496         92       1036     869289   ELF Image Totals
-      6404        432        496         92          0          0   ROM Totals
+      6408        432        496         92       1044     869393   Grand Totals
+      6408        432        496         92       1044     869393   ELF Image Totals
+      6408        432        496         92          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 6900 (   6.74kB)
-    Total RW  Size (RW Data + ZI Data)              1128 (   1.10kB)
-    Total ROM Size (Code + RO Data + RW Data)       6992 (   6.83kB)
+    Total RO  Size (Code + RO Data)                 6904 (   6.74kB)
+    Total RW  Size (RW Data + ZI Data)              1136 (   1.11kB)
+    Total ROM Size (Code + RO Data + RW Data)       6996 (   6.83kB)
 
 ==============================================================================
 
