@@ -78,3 +78,4 @@
 .\stm32l476rg_nucleo\output\main.o: P:\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_pcd_ex.h
 .\stm32l476rg_nucleo\output\main.o: P:\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_hcd.h
 .\stm32l476rg_nucleo\output\main.o: ..\Src\rwflash.h
+.\stm32l476rg_nucleo\output\main.o: D:\Programas\STMicroelectronics\Keil_v531\ARM\ARMCC\Bin\..\include\inttypes.h

@@ -8,7 +8,6 @@
   *******************************************************************************************************************************************************
  */
 #include "rwflash.h"
-#include "string.h"
 /********************************************************************************************************************************************************/
 /*Declaration of struct to store the information give by user */
 FlashDirAndPage FlashDirStruct;
@@ -84,14 +83,19 @@ uint32_t WritePageInFlash(uint64_t userData[])
   * @param  Address specifies the address to be programmed.
   * @retval None
   */
-void ReadMemDir(uint32_t addres)
+void ReadMemDir(uint32_t addres, void *data)
 {
 	for(uint8_t i = 0; i < FlashDirStruct.LOND; i++)
 	{
-		printf("En la direccion %#x hay: ", GetMemDir() + i*8);
-		printf("%#x%x\n", *((uint32_t *)GetMemDir() + i*2), *((uint32_t *)GetMemDir() + (i*2+1)));
-		HAL_Delay(100);
+		*((uint64_t *)data + i) =   *((uint64_t *)GetMemDir() + i) ;            //  *((uint32_t *)GetMemDir() + i*2)+*((uint32_t *)GetMemDir() + (i*2+1));
 	}
+	
+//	for(uint8_t i = 0; i < FlashDirStruct.LOND; i++)
+//	{
+//		printf("En la direccion %#x hay: ", GetMemDir() + i*8);
+//		printf("%#x%x\n", *((uint32_t *)GetMemDir() + i*2), *((uint32_t *)GetMemDir() + (i*2+1)));
+//		HAL_Delay(100);
+//	}
 }
 /********************************************************************************************************************************************************/
 /**

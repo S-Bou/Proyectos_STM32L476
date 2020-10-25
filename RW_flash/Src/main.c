@@ -14,16 +14,22 @@
 #include <stdio.h>
 #include "stm32l4xx_hal.h"
 #include "rwflash.h"
-
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
+/*Definition of memory direction*/
 #define DIR_MEM_INIT 0x0807F800
+/*Definition of bank number */
 #define BANK_NUM FLASH_BANK_1  /*Not used if only wtite in determinated page */
+/*Definition of page number  */
 #define PAGE_MEM_INIT 255
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-uint64_t DATA[4] = {0x1111111111111111, 0x2222222222222222, 0x3333333333333333, 0x4444444444444444};
-//uint64_t DATA[4] = {90, 30, 60, 90}; /*Example of  vector with position in degrees of some servos */
+/*Example of vector of data in hexadecimal*/
+//uint64_t DATA[4] = {0x1111111111111111, 0x2222222222222222, 0x3333333333333333, 0x4444444444444444};
+/*Vector to store data readed in memory*/
+uint64_t DATA_READ[4] = {0, 0, 0, 0};
+/*Example of vector of data in decimal*/
+uint64_t DATA[4] = {90, 30, 60, 90}; /*Example of  vector with position in degrees of some servos */
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 //static void Error_Handler(void);
@@ -39,15 +45,23 @@ int main(void)
   /* Configure the System clock to 180 MHz */
   SystemClock_Config();
 	/*User code*/
-	/**/
+	/*Send information of memory direction to module*/
 	InitFlashRW(BANK_NUM, DIR_MEM_INIT, PAGE_MEM_INIT);
-	/**/
+	/*Write data in memory direction choosed */
 	WritePageInFlash(DATA);
+	/*Read data in memory direction defined and save in vector*/
+	ReadMemDir(DIR_MEM_INIT, DATA_READ);
+	/*Print in console the data saved in vector*/
+	for(uint8_t i = 0; i < 4; i++)
+	{
+		printf("En la direccion %#x hay: ", DIR_MEM_INIT + i*8);
+		printf("%#" PRIu64 "\n", DATA_READ [i]);
+		HAL_Delay(500);
+	}
   /* Infinite loop */
   while (1)
   {
 		/**/
-		ReadMemDir(DIR_MEM_INIT);
   }
 }
 /**

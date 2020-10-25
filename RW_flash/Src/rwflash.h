@@ -16,6 +16,8 @@ extern "C" {
 /********************************************************************************************************************************************************/
 #include "stm32l4xx_hal.h"
 #include "stdio.h"
+#include "stdint.h"
+#include "inttypes.h"
 #define ALL_OK 0x666
 /********************************************************************************************************************************************************/
 /**
@@ -34,14 +36,14 @@ typedef struct
 } FlashDirAndPage;
 
 /* Peripheral Control functions  **********************************************************************************************************************/
-/** @brief  FLASH options functions definition
+/** @brief  Flash option function declarations
   * @{
   */
 void InitFlashRW(uint32_t bank, uint32_t address, uint32_t page);
 
 uint32_t WritePageInFlash(uint64_t userData[]);
 
-void ReadMemDir(uint32_t addres);
+void ReadMemDir(uint32_t addres, void *data);
 
 uint32_t  GetMemDir(void);
 
