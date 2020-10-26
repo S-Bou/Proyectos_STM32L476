@@ -246,8 +246,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Core\Src\armrobo.c</PathWithFileName>
-      <FilenameWithoutPath>armrobo.c</FilenameWithoutPath>
+      <PathWithFileName>..\Core\Src\robotarm.c</PathWithFileName>
+      <FilenameWithoutPath>robotarm.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

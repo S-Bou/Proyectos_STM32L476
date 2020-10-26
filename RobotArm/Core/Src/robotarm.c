@@ -1,16 +1,16 @@
 /**
  *******************************************************************************************************************************************************
-  * @file    armrobo.c 
+  * @file    robotarm.c 
   * @author  Bou
   * @version V1.0.0
   * @date    XX-XXXX-20XX
   * @brief   This file provides...
   *******************************************************************************************************************************************************
  */
- #include "stm32l4xx_hal.h"
-#include "armrobo.h"
+#include "robotarm.h"
 /********************************************************************************************************************************************************/
-static volatile uint32_t contador = 30000;
+extern ADC_HandleTypeDef hadc1;
+uint32_t adc_val[4];
 /********************************************************************************************************************************************************/
 /**
   * @brief  This function...
@@ -19,14 +19,7 @@ static volatile uint32_t contador = 30000;
   */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	HAL_Delay(5);
-	if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_9))
-	{
-		RightEncoder();
-	}else{
-		LeftEncoder();
-	}
-	__HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+	CaptureAnalogData();
 }
 /********************************************************************************************************************************************************/
 /**
@@ -36,7 +29,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   */
 void RightEncoder(void)
 {
-		contador++;
+
 }
 /********************************************************************************************************************************************************/
 /**
@@ -44,8 +37,11 @@ void RightEncoder(void)
   * @param  None
   * @retval None
   */
-void LeftEncoder(void)
+void CaptureAnalogData(void)
 {
-		contador--;
+	HAL_ADC_Start_DMA(&hadc1, adc_val, 4);
+//	HAL_ADC_PollForConversion(&hadc1, 100);	/*wait for the conversion to complete*/
+//	adc_val = HAL_ADC_GetValue(&hadc1);
+//	HAL_ADC_Stop(&hadc1);
 }
 /********************************************************************************************************************************************************/
