@@ -43,8 +43,8 @@ int main(void)
 		//printf("Hello world !!!!\n");
 		
 		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		//HAL_Delay(1000);
-		delay_us(10000);
+		//HAL_Delay(500);
+		delay_us(500);
   }
 }
 /**

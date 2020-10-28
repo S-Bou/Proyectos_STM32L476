@@ -17,9 +17,10 @@ uint32_t adc_val[4];
   * @param  None
   * @retval None
   */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	CaptureAnalogData();
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		HAL_ADC_Start_DMA(&hadc1, adc_val, 4);
 }
 /********************************************************************************************************************************************************/
 /**
@@ -40,8 +41,12 @@ void RightEncoder(void)
 void CaptureAnalogData(void)
 {
 	HAL_ADC_Start_DMA(&hadc1, adc_val, 4);
-//	HAL_ADC_PollForConversion(&hadc1, 100);	/*wait for the conversion to complete*/
-//	adc_val = HAL_ADC_GetValue(&hadc1);
-//	HAL_ADC_Stop(&hadc1);
 }
+/********************************************************************************************************************************************************/
+/**
+  * @brief  This function...
+  * @param None
+  * @retval None
+  */
+
 /********************************************************************************************************************************************************/

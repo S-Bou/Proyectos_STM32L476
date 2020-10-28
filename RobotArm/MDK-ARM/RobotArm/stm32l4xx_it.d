@@ -35,3 +35,4 @@ robotarm\stm32l4xx_it.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_e
 robotarm\stm32l4xx_it.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h
 robotarm\stm32l4xx_it.o: ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim_ex.h
 robotarm\stm32l4xx_it.o: ../Core/Inc/stm32l4xx_it.h
+robotarm\stm32l4xx_it.o: ../Core/Src/robotarm.h

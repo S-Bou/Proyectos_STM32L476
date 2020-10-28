@@ -1,0 +1,21 @@
+
+-------------------------------------------------------------------------------
+STM32Cube Firmware for STM32L4 series
+
+Don't put that firmware in this folder, it is too big.
+In order to avoid this, the template has been configurated to assume that it is stored in the unit "O:".
+
+You can provide a virtual unit "O:" that point to the real firmware following this procedure:
+- Go to "Inicio->Todos los programas->Inicio" and right-click on "Inicio" to select "Abrir".
+- In the open folder, right-click and select "Nuevo->Acceso directo"
+- In the openned dialog, write "cmd" for the command and pres "Intro".
+- Right-clic the created icon and elect "Propiedades"
+- In field "Destino" add the following text: %windir%\system32\cmd.exe /c "subst P: C:\STMicroelectronics\STM32Cube-Repository\STM32Cube_FW_L4_V1.9.0"
+where C:\... must be replaced with the path for your own machine
+- Click on the newly created icon. This should create the unit "O:\"
+- Chechk the correct creation of the new disk unit "o:", openning the file explorer
+
+If your "O:" is busy, you can adapt yourself the path. Check the contents of files "MDK-ARM/Project.uvoptx" and "MDK-ARM/Project.uvprojx" for finding and replacing "o:\" with your desired path.
+
+Sorry for this trick. Keil does not provide good solutions for that.
+

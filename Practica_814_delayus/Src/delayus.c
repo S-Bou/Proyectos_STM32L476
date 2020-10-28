@@ -54,7 +54,7 @@ void delay_init(void)
     timer_handle.Instance = TIM6;
 		timer_handle.Init.Prescaler = (SystemCoreClock/1000000) - 1;
 		timer_handle.Init.CounterMode = TIM_COUNTERMODE_UP;
-		timer_handle.Init.Period = 65535;
+		timer_handle.Init.Period = 65536 - 1;
 		timer_handle.Init.ClockDivision = 0;
 		timer_handle.Init.RepetitionCounter = 0;
  
@@ -62,3 +62,4 @@ void delay_init(void)
  
 }
 /********************************************************************************************************************************************************/
+
