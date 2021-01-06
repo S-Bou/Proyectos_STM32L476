@@ -14,12 +14,18 @@ extern "C" {
 #endif
 /********************************************************************************************************************************************************/
 #include "stm32l4xx_hal.h"
-#define MAX_DEGREE 25
-#define MEDIUM_DEGREE 65
-#define MIN_DEGREE 105
+#define MAX_DEGREE 125
+#define MEDIUM_DEGREE 75
+#define MIN_DEGREE 55
+#define MIN_DEGREE_GRIPPER 40
+#define MAX_DEGREE_GRIPPER 70
+#define MIN_DEGREE_ELBOW 40
+#define MAX_DEGREE_ELBOW 150
 /********************************************************************************************************************************************************/
-void RightEncoder(void);
-void CaptureAnalogData(void);
+
+/********************************************************************************************************************************************************/
+void HandlerServosPot(void);
+void MoveServoGripper(uint8_t min, uint8_t max);
 /********************************************************************************************************************************************************/
 #ifdef __cplusplus
 }

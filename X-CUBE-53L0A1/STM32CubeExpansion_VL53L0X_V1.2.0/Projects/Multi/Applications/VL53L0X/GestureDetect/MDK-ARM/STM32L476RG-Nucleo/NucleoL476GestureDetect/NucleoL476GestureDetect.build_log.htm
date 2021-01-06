@@ -1,0 +1,184 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Juan bouyo@m, HP Inc., LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.31.0.0
+Toolchain Path:  D:\Programas\STMicroelectronics\Keil_v531\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.31.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.7.0
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+D:\Programas\STMicroelectronics\Proyectos_STM32L476\X-CUBE-53L0A1\STM32CubeExpansion_VL53L0X_V1.2.0\Projects\Multi\Applications\VL53L0X\GestureDetect\MDK-ARM\STM32L476RG-Nucleo\NucleoL476GestureDetect.uvprojx
+Project File Date:  11/28/2020
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Programas\STMicroelectronics\Keil_v531\ARM\ARMCC\Bin'
+Build target 'NucleoL476GestureDetect'
+assembling startup_stm32l476xx.s...
+startup_stm32l476xx.s: error: A1023E: File "..\..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32L4xx\Source\Templates\arm\startup_stm32l476xx.s" could not be opened: No such file or directory
+compiling system_stm32l4xx.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32L4xx\Source\Templates\system_stm32l4xx.c": No such file or directory
+..\..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32L4xx\Source\Templates\system_stm32l4xx.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_flash_ramfunc.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_flash_ramfunc.c": No such file or directory
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_flash_ramfunc.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_flash_ex.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_flash_ex.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_gpio.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_gpio.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_msp.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\Src\stm32l4xx_hal_msp.c: 0 warnings, 1 error
+compiling stm32l4xx_hal.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_rcc.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_cortex.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_i2c.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_i2c.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_flash.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_flash.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_pwr.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_rcc_ex.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc_ex.c: 0 warnings, 1 error
+compiling main.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\Src\main.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_i2c_ex.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_i2c_ex.c: 0 warnings, 1 error
+compiling stm32l4xx_it.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\Src\stm32l4xx_it.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_dma.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_pwr_ex.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr_ex.c: 0 warnings, 1 error
+compiling uart_trace.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\BSP\X-NUCLEO-53L0A1\uart_trace.c: 0 warnings, 1 error
+compiling vl53l0x_platform.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\BSP\X-NUCLEO-53L0A1\vl53l0x_platform.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_tim.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_tim_ex.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim_ex.c: 0 warnings, 1 error
+compiling ring_buffer.c...
+..\..\..\..\..\..\..\Middlewares\ST\Gestures\GesturesDetect\Inc\ring_buffer.h(39): error:  #5: cannot open source input file "tof_gestures_platform.h": No such file or directory
+  #include "tof_gestures_platform.h"
+..\..\..\..\..\..\..\Middlewares\ST\Gestures\GesturesDetect\Src\ring_buffer.c: 0 warnings, 1 error
+compiling tof_gestures_DIRSWIPE_1.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\..\..\..\Middlewares\ST\Gestures\GesturesDetect\Src\tof_gestures_DIRSWIPE_1.c": No such file or directory
+..\..\..\..\..\..\..\Middlewares\ST\Gestures\GesturesDetect\Src\tof_gestures_DIRSWIPE_1.c: 0 warnings, 1 error
+compiling tof_gestures_SWIPE_1.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\..\..\..\Middlewares\ST\Gestures\GesturesDetect\Src\tof_gestures_SWIPE_1.c": No such file or directory
+..\..\..\..\..\..\..\Middlewares\ST\Gestures\GesturesDetect\Src\tof_gestures_SWIPE_1.c: 0 warnings, 1 error
+compiling tof_gestures_TAP_1.c...
+"no source": Error:  #5: cannot open source input file "..\..\..\..\..\..\..\Middlewares\ST\Gestures\GesturesDetect\Src\tof_gestures_TAP_1.c": No such file or directory
+..\..\..\..\..\..\..\Middlewares\ST\Gestures\GesturesDetect\Src\tof_gestures_TAP_1.c: 0 warnings, 1 error
+compiling tof_motion.c...
+..\..\..\..\..\..\..\Middlewares\ST\Gestures\GesturesDetect\Inc\tof_motion.h(40): error:  #5: cannot open source input file "tof_gestures_platform.h": No such file or directory
+  #include "tof_gestures_platform.h"
+..\..\..\..\..\..\..\Middlewares\ST\Gestures\GesturesDetect\Src\tof_motion.c: 0 warnings, 1 error
+compiling vl53l0a1-x4msp.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\BSP\X-NUCLEO-53L0A1\vl53l0a1-x4msp.c: 0 warnings, 1 error
+compiling vl53l0x_api_strings.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\BSP\Components\vl53l0x\vl53l0x_api_strings.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_uart_ex.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart_ex.c: 0 warnings, 1 error
+compiling X-NUCLEO-53L0A1.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\BSP\X-NUCLEO-53L0A1\X-NUCLEO-53L0A1.c: 0 warnings, 1 error
+compiling stm32l4xx_hal_uart.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_uart.c: 0 warnings, 1 error
+compiling vl53l0x_api_calibration.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\BSP\Components\vl53l0x\vl53l0x_api_calibration.c: 0 warnings, 1 error
+compiling vl53l0x_api_ranging.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\BSP\Components\vl53l0x\vl53l0x_api_ranging.c: 0 warnings, 1 error
+compiling vl53l0x_api_core.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\BSP\Components\vl53l0x\vl53l0x_api_core.c: 0 warnings, 1 error
+compiling vl53l0x_api.c...
+..\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc\stm32l4xx_hal_flash.h(706): error:  #5: cannot open source input file "stm32l4xx_hal_flash_ramfunc.h": No such file or directory
+  #include "stm32l4xx_hal_flash_ramfunc.h"
+..\..\..\..\..\..\..\Drivers\BSP\Components\vl53l0x\vl53l0x_api.c: 0 warnings, 1 error
+"NucleoL476GestureDetect\NucleoL476GestureDetect.axf" - 36 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32L4xx_DFP.2.4.0.pack
+                Keil.STM32L4xx_DFP.2.4.0
+                STMicroelectronics STM32L4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  D:\Programas\STMicroelectronics\Keil_v531\ARM\PACK\Keil\STM32L4xx_DFP\2.4.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+Target not created.
+Build Time Elapsed:  00:00:21
+</pre>
+</body>
+</html>
