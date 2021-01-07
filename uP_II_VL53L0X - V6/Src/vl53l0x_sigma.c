@@ -1,16 +1,15 @@
-/**
- *******************************************************************************************************************************************************
+/*********************************************************************************************************************************************************
   * @file       VL53L0X_SIGMA.c 
   * @author  Bou
   * @version V1.0.0
   * @date     7-JAN-2021
-  * @brief   This file provides all functions to manage the device VL53L0X TOF laser sensor
-  *******************************************************************************************************************************************************
- */
+  * @brief     This file provides all functions to manage the device VL53L0X TOF laser sensor
+  */
+ /***************************************************************************_includes_*****************************************************************/
+
 #include "stm32l4xx_hal.h"
 #include "vl53l0x_sigma.h"
-/********************************************************************************************************************************************************/
-TIM_HandleTypeDef timer_handle;
+/***************************************************************************_Global_variables_*********************************************************/
 TIM_HandleTypeDef htim2;
 UART_HandleTypeDef huart2;
 /*Global ranging struct*/
@@ -26,22 +25,23 @@ int LeakyFactorFix8 = (int)( 0.6 *256);
 char uartBUFF[200];
 uint8_t counter=0;
 uint32_t time=100;
-/********************************************************************************************************************************************************/
+/***************************************************************************_Functions_***************************************************************/
 /**
-  * @brief  This function reset all sensor then do presence detection, all present devices are data initiated and assigned to their final I2C address
+  * @brief    This function reset all sensor then do presence detection, all present devices are data initiated and assigned to their final I2C address
   * @param  None
-  * @retval None
+  * @retval   None
   */
-void DetectSensors(void)
+void DetectSensor(void)
 {
-	int i=1;
 	uint16_t Id;
 	int status;
 	int FinalAddress;
 
 	/*Initialize all configured peripherals */
 	MY_USART2_UART_Init();
+	/*Congig pin as output to led*/
 	GPIO_LED_Config();
+	/*Config timer 2 to PWM signal*/
 	MY_TIM2_Init();
   /*Config EXTI by whes is pressed the user button*/
 	EXTI15_10_IRQHandler_Config();
@@ -54,15 +54,15 @@ void DetectSensors(void)
   XNUCLEO53L0A1_SetDisplayString("HOLA");
   HAL_Delay(500);
 	/* Reset all */
-	status = XNUCLEO53L0A1_ResetId(i, 0);
-	/* detect all sensors (even on-board)*/
+	status = XNUCLEO53L0A1_ResetId(1, 0);
+	/* detect sensor (even on-board)*/
 	VL53L0X_Dev_t *pDev;
 	pDev = &VL53L0XDevs;
 	pDev->I2cDevAddr = 0x52;
 	pDev->Present = 0;
 	status = XNUCLEO53L0A1_ResetId( pDev->Id, 1);
 	HAL_Delay(2);
-	FinalAddress=0x52+(i+1)*2;
+	FinalAddress=0x56;
 
 	do {
 		/* Set I2C standard mode (400 KHz) before doing the first register access */
@@ -71,7 +71,7 @@ void DetectSensors(void)
 		/* Try to read one register using default 0x52 address */
 		status = VL53L0X_RdWord(pDev, VL53L0X_REG_IDENTIFICATION_MODEL_ID, &Id);
 		if (status) {
-			sprintf(uartBUFF, "#%d Read id fail\n\r", i);
+			sprintf(uartBUFF, "# Read id fail\n\r");
 			HAL_UART_Transmit(&huart2, (uint8_t *)uartBUFF, strlen(uartBUFF), 100);
 			break;
 		}
@@ -79,7 +79,7 @@ void DetectSensors(void)
 			/* Sensor is found => Change its I2C address to final one */
 			status = VL53L0X_SetDeviceAddress(pDev,FinalAddress);
 			if (status != 0) {
-				sprintf(uartBUFF, "#%d VL53L0X_SetDeviceAddress fail\n\r", i);
+				sprintf(uartBUFF, "# VL53L0X_SetDeviceAddress fail\n\r");
 				HAL_UART_Transmit(&huart2, (uint8_t *)uartBUFF, strlen(uartBUFF), 100);
 				break;
 			}
@@ -87,7 +87,7 @@ void DetectSensors(void)
 			/* Check all is OK with the new I2C address and initialize the sensor */
 			status = VL53L0X_RdWord(pDev, VL53L0X_REG_IDENTIFICATION_MODEL_ID, &Id);
 			if (status != 0) {
-				sprintf(uartBUFF, "#%d VL53L0X_RdWord fail\n\r", i);
+				sprintf(uartBUFF, "# VL53L0X_RdWord fail\n\r");
 				HAL_UART_Transmit(&huart2, (uint8_t *)uartBUFF, strlen(uartBUFF), 100);
 				break;
 			}
@@ -102,20 +102,20 @@ void DetectSensors(void)
 			HAL_UART_Transmit(&huart2, (uint8_t *)uartBUFF, strlen(uartBUFF), 100);								
 			pDev->Present = 1;
 		}else {
-			sprintf(uartBUFF, "#%d unknown ID %x\n\r", i, Id);
+			sprintf(uartBUFF, "# unknown ID %x\n\r",Id);
 			HAL_UART_Transmit(&huart2, (uint8_t *)uartBUFF, strlen(uartBUFF), 100);								
 			status = 1;
 		}
 	} while (0);
 	/* if fail r can't use for any reason then put the  device back to reset */
-	if (status) {XNUCLEO53L0A1_ResetId(i, 0);}
+	if (status) {XNUCLEO53L0A1_ResetId(1, 0);}
 }
 /********************************************************************************************************************************************************/
 /**
-  * @brief  This function store new ranging data into the device structure, apply leaky integrator if needed
+  * @brief     This function store new ranging data into the device structure, apply leaky integrator if needed
   * @param  pDev: pointer to the device params
   * @param  pRange: pointer to the range status, that give the quality of the latest ranging.
-  * @retval None
+  * @retval   None
   */
 void Sensor_SetNewRange(VL53L0X_Dev_t *pDev, VL53L0X_RangingMeasurementData_t *pRange)
 {
@@ -133,10 +133,10 @@ void Sensor_SetNewRange(VL53L0X_Dev_t *pDev, VL53L0X_RangingMeasurementData_t *p
 /********************************************************************************************************************************************************/
 /**
   * @brief    This function setup all detected sensors for single shot mode and setup ranging configuration.
-  * @param rangingConfig Ranging configuration to be used (same for all sensors).
+* @param   rangingConfig: ranging configuration mode to be used 
   * @retval   None
  */
-void SetupSingleShot(void)
+void SetupSingleShot(RangingConfig rangingConfig)
 {
 	int status;
 	uint8_t VhvSettings;
@@ -168,12 +168,32 @@ void SetupSingleShot(void)
 		status = VL53L0X_SetLimitCheckEnable(&VL53L0XDevs, VL53L0X_CHECKENABLE_SIGNAL_RATE_FINAL_RANGE, 1); // Enable Signa limit
     if( status ){Error_Handler("vl53l0x_sigma.c -> SetupSingleShot",5);}
 
-		/* Ranging configuration LONG_RANGE*/
-		signalLimit = (FixPoint1616_t)(0.1*65536);
-		sigmaLimit = (FixPoint1616_t)(60*65536);
-		timingBudget = 33000;
-		preRangeVcselPeriod = 18;
-		finalRangeVcselPeriod = 14;
+		/* Ranging configuration */
+		switch(rangingConfig) {
+			case LONG_RANGE:
+				signalLimit = (FixPoint1616_t)(0.1*65536);
+				sigmaLimit = (FixPoint1616_t)(60*65536);
+				timingBudget = 33000;
+				preRangeVcselPeriod = 18;
+				finalRangeVcselPeriod = 14;
+				break;
+			case HIGH_ACCURACY:
+				signalLimit = (FixPoint1616_t)(0.25*65536);
+				sigmaLimit = (FixPoint1616_t)(18*65536);
+				timingBudget = 200000;
+				preRangeVcselPeriod = 14;
+				finalRangeVcselPeriod = 10;
+				break;
+			case HIGH_SPEED:
+				signalLimit = (FixPoint1616_t)(0.25*65536);
+				sigmaLimit = (FixPoint1616_t)(32*65536);
+				timingBudget = 20000;
+				preRangeVcselPeriod = 14;
+				finalRangeVcselPeriod = 10;
+				break;
+			default:
+				Error_Handler("vl53l0x_sigma.c ->SetupSingleShot",12);
+		}
 
 		status = VL53L0X_SetLimitCheckValue(&VL53L0XDevs,  VL53L0X_CHECKENABLE_SIGNAL_RATE_FINAL_RANGE, signalLimit);
     if( status ){Error_Handler("vl53l0x_sigma.c ->SetupSingleShot",6);}
@@ -199,17 +219,16 @@ void SetupSingleShot(void)
 /********************************************************************************************************************************************************/
 /**
   * @brief    Implement the ranging demo with LONG_RANGE mode.
-  * @param UseSensorsMask Mask of any sensors to use if not only one present
+* @param   Rangingconfig: mode to pass in function SetupSingleShot()
   * @retval   None
   */
-void RangeDemo(void)
+void RangeDemo(RangingConfig Rangingconfig)
 {
-
 	int status;
 	char StrDisplay[5];
 
 	/* Setup sensor in Single Shot mode */
-	SetupSingleShot();
+	SetupSingleShot(Rangingconfig);	
 	/* only one sensor, call All-In-One blocking API function */
 	status = VL53L0X_PerformSingleRangingMeasurement(&VL53L0XDevs,&RangingMeasurementData);
 	if( status ){Error_Handler("vl53l0x_sigma.c -> RangeDemo",1);}
@@ -244,7 +263,7 @@ void RangeDemo(void)
 			break;
 		case 2:
 			if( status==0 ){ /* Push data logging to UART */
-			if(RangingMeasurementData.RangeMilliMeter<200){
+			if(RangingMeasurementData.RangeMilliMeter<100){
 				sprintf(uartBUFF, "Device: Toogle output\n\r");
 				HAL_UART_Transmit(&huart2, (uint8_t *)uartBUFF, strlen(uartBUFF), 100);	
 				HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_6);
@@ -258,8 +277,13 @@ void RangeDemo(void)
 					sprintf(uartBUFF, "Device: %d; Out of range\n\r", VL53L0XDevs.Id);
 					HAL_UART_Transmit(&huart2, (uint8_t *)uartBUFF, strlen(uartBUFF), 100);	
 				}else{
-					sprintf(uartBUFF, "Device: %d; Mode: measuring; Distance: %d mm\n\r", VL53L0XDevs.Id, RangingMeasurementData.RangeMilliMeter);
+					sprintf(uartBUFF, "Device: %d; Mode: switch; Distance: %d mm\n\r", VL53L0XDevs.Id, RangingMeasurementData.RangeMilliMeter);
 					HAL_UART_Transmit(&huart2, (uint8_t *)uartBUFF, strlen(uartBUFF), 100);	
+					if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_6)){
+						sprintf(StrDisplay, " ON ");
+					}else{
+						sprintf(StrDisplay, " OFF");
+					}
 				}				
 			}
 			Sensor_SetNewRange(&VL53L0XDevs,&RangingMeasurementData);
@@ -292,11 +316,10 @@ void RangeDemo(void)
 			XNUCLEO53L0A1_SetDisplayString(StrDisplay);	
 			break;
 		default:
-		Error_Handler("vl53l0x_sigma.c -> RangeDemo",4);
-		sprintf(StrDisplay, "FAIL");		
-		XNUCLEO53L0A1_SetDisplayString(StrDisplay);
+			Error_Handler("vl53l0x_sigma.c -> RangeDemo",4);
+			sprintf(StrDisplay, "OTER");		
+			XNUCLEO53L0A1_SetDisplayString(StrDisplay);
 	}
-
 }
 /********************************************************************************************************************************************************/
 /**
@@ -359,14 +382,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if (GPIO_Pin == GPIO_PIN_13)
   {
-		if (counter>3){counter=0;}
-    /* Toggle LED2  when push user buton*/
-    //HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		if (counter>3){counter=1;}
+    /* Increase counter when push user buton*/
 		counter++;
 		switch (counter){
-			case 0:
-				sprintf(uartBUFF, "INIT");
-			  break;
 			case 1:
 				sprintf(uartBUFF, "CAS1");
 			  break;
@@ -377,7 +396,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 				sprintf(uartBUFF, "CAS3");	
 			  break;
 			default:
-				sprintf(uartBUFF, "FAIL");
+				sprintf(uartBUFF, "OTER");
 				break;
 		}							
 		XNUCLEO53L0A1_SetDisplayString(uartBUFF);	
@@ -524,5 +543,4 @@ void GPIO_LED_Config(void)
   * @retval    None
   */
 /********************************************************************************************************************************************************/
-
 

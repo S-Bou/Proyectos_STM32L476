@@ -25,13 +25,14 @@ int main(void)
   /*Configure the System clock to 80 MHz*/
   SystemClock_Config();
 	/*User code*/
+	RangingConfig rangingConfig = LONG_RANGE;     /* Options: LONG_RANGE or HIGH_SPEED or HIGH_ACCURACY  */
   /*Reset and Detect all sensors*/
-  DetectSensors();
+  DetectSensor();
   /* Infinite loop */
   while (1)
   {
-      /*Start Ranging demo*/
-      RangeDemo();
+		/*Start Ranging demo*/
+		RangeDemo(rangingConfig);
   }
 }
 /**

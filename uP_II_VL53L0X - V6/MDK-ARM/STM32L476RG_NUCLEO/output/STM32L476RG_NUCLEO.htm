@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\STM32L476RG_NUCLEO\output\STM32L476RG_NUCLEO.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\STM32L476RG_NUCLEO\output\STM32L476RG_NUCLEO.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Jan 07 00:02:49 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Jan 07 01:42:54 2021
 <BR><P>
 <H3>Maximum Stack Usage =        948 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -393,8 +393,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsr
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_llsl
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
-<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
 
 <P><STRONG><a name="[f3]"></a>__aeabi_memcpy</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, memcpya.o(.text))
@@ -439,7 +439,7 @@ Global Symbols
 <P><STRONG><a name="[6f]"></a>strlen</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, strlen.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RangeDemo
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[fd]"></a>strcpy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, strcpy.o(.text))
@@ -476,8 +476,8 @@ Global Symbols
 <P><STRONG><a name="[7]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32l4xx_it.o(i.DebugMon_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l476xx.o(RESET)
 </UL>
-<P><STRONG><a name="[68]"></a>DetectSensors</STRONG> (Thumb, 424 bytes, Stack size 32 bytes, vl53l0x_sigma.o(i.DetectSensors))
-<BR><BR>[Stack]<UL><LI>Max Depth = 464<LI>Call Chain = DetectSensors &rArr; VL53L0X_DataInit &rArr; VL53L0X_GetDeviceParameters &rArr; VL53L0X_GetMeasurementTimingBudgetMicroSeconds &rArr; VL53L0X_get_measurement_timing_budget_micro_seconds &rArr; get_sequence_step_timeout &rArr; VL53L0X_GetVcselPulsePeriod &rArr; VL53L0X_get_vcsel_pulse_period &rArr; VL53L0X_RdByte &rArr; _I2CWrite &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnTXISFlagUntilTimeout &rArr; I2C_IsAcknowledgeFailed
+<P><STRONG><a name="[68]"></a>DetectSensor</STRONG> (Thumb, 392 bytes, Stack size 24 bytes, vl53l0x_sigma.o(i.DetectSensor))
+<BR><BR>[Stack]<UL><LI>Max Depth = 456<LI>Call Chain = DetectSensor &rArr; VL53L0X_DataInit &rArr; VL53L0X_GetDeviceParameters &rArr; VL53L0X_GetMeasurementTimingBudgetMicroSeconds &rArr; VL53L0X_get_measurement_timing_budget_micro_seconds &rArr; get_sequence_step_timeout &rArr; VL53L0X_GetVcselPulsePeriod &rArr; VL53L0X_get_vcsel_pulse_period &rArr; VL53L0X_RdByte &rArr; _I2CWrite &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnTXISFlagUntilTimeout &rArr; I2C_IsAcknowledgeFailed
 </UL>
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_USART2_UART_Init
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_TIM2_Init
@@ -493,8 +493,8 @@ Global Symbols
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_RdWord
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_DataInit
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -513,7 +513,7 @@ Global Symbols
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_EnableIRQ
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[78]"></a>Error_Handler</STRONG> (Thumb, 86 bytes, Stack size 120 bytes, vl53l0x_sigma.o(i.Error_Handler))
@@ -523,14 +523,14 @@ Global Symbols
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_TogglePin
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetupSingleShot
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_USART2_UART_Init
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_TIM2_Init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RangeDemo
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
@@ -540,7 +540,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[72]"></a>HAL_Delay</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, stm32l4xx_hal.o(i.HAL_Delay))
@@ -550,12 +550,12 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RangeDemo
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_I2cFailRecover
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_PollingDelay
 </UL>
 
-<P><STRONG><a name="[80]"></a>HAL_GPIO_EXTI_Callback</STRONG> (Thumb, 130 bytes, Stack size 8 bytes, vl53l0x_sigma.o(i.HAL_GPIO_EXTI_Callback))
+<P><STRONG><a name="[80]"></a>HAL_GPIO_EXTI_Callback</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, vl53l0x_sigma.o(i.HAL_GPIO_EXTI_Callback))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = HAL_GPIO_EXTI_Callback &rArr; XNUCLEO53L0A1_SetDisplayString &rArr; _ExpandersSetAllIO &rArr; _ExpanderWR &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnTXISFlagUntilTimeout &rArr; I2C_IsAcknowledgeFailed
 </UL>
 <BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XNUCLEO53L0A1_SetDisplayString
@@ -783,25 +783,25 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[9b]"></a>HAL_TIM_ConfigClockSource</STRONG> (Thumb, 264 bytes, Stack size 24 bytes, stm32l4xx_hal_tim.o(i.HAL_TIM_ConfigClockSource))
-<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = HAL_TIM_ConfigClockSource &rArr; TIM_TI2_ConfigInputStage
+<BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = HAL_TIM_ConfigClockSource &rArr; TIM_ETR_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TI2_ConfigInputStage
+<BR>[Calls]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ETR_SetConfig
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TI2_ConfigInputStage
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TI1_ConfigInputStage
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ITRx_SetConfig
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ETR_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_TIM2_Init
 </UL>
 
 <P><STRONG><a name="[a0]"></a>HAL_TIM_PWM_ConfigChannel</STRONG> (Thumb, 372 bytes, Stack size 16 bytes, stm32l4xx_hal_tim.o(i.HAL_TIM_PWM_ConfigChannel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC6_SetConfig
+<BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = HAL_TIM_PWM_ConfigChannel &rArr; TIM_OC2_SetConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC6_SetConfig
+<BR>[Calls]<UL><LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC6_SetConfig
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC5_SetConfig
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC4_SetConfig
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC3_SetConfig
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC1_SetConfig
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_OC2_SetConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MY_TIM2_Init
 </UL>
@@ -850,7 +850,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RangeDemo
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[2]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32l4xx_it.o(i.HardFault_Handler))
@@ -859,16 +859,16 @@ Global Symbols
 <P><STRONG><a name="[6b]"></a>MY_TIM2_Init</STRONG> (Thumb, 284 bytes, Stack size 88 bytes, vl53l0x_sigma.o(i.MY_TIM2_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = MY_TIM2_Init &rArr; Error_Handler &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
+<BR>[Calls]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Init
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_ConfigClockSource
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_Init
-<LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_MasterConfigSynchronization
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[69]"></a>MY_USART2_UART_Init</STRONG> (Thumb, 156 bytes, Stack size 32 bytes, vl53l0x_sigma.o(i.MY_USART2_UART_Init))
@@ -879,7 +879,7 @@ Global Symbols
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[3]"></a>MemManage_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32l4xx_it.o(i.MemManage_Handler))
@@ -891,7 +891,7 @@ Global Symbols
 <P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32l4xx_it.o(i.PendSV_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l476xx.o(RESET)
 </UL>
-<P><STRONG><a name="[b6]"></a>RangeDemo</STRONG> (Thumb, 650 bytes, Stack size 24 bytes, vl53l0x_sigma.o(i.RangeDemo))
+<P><STRONG><a name="[b6]"></a>RangeDemo</STRONG> (Thumb, 684 bytes, Stack size 24 bytes, vl53l0x_sigma.o(i.RangeDemo))
 <BR><BR>[Stack]<UL><LI>Max Depth = 948<LI>Call Chain = RangeDemo &rArr; SetupSingleShot &rArr; VL53L0X_StaticInit &rArr; VL53L0X_perform_ref_spad_management &rArr; perform_ref_signal_measurement &rArr; VL53L0X_PerformSingleRangingMeasurement &rArr; VL53L0X_GetRangingMeasurementData &rArr; VL53L0X_get_pal_range_status &rArr; VL53L0X_calc_sigma_estimate &rArr; VL53L0X_calc_dmax
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetupSingleShot
@@ -904,8 +904,8 @@ Global Symbols
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_PerformSingleRangingMeasurement
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_Start
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -919,7 +919,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RangeDemo
 </UL>
 
-<P><STRONG><a name="[b7]"></a>SetupSingleShot</STRONG> (Thumb, 326 bytes, Stack size 48 bytes, vl53l0x_sigma.o(i.SetupSingleShot))
+<P><STRONG><a name="[b7]"></a>SetupSingleShot</STRONG> (Thumb, 396 bytes, Stack size 48 bytes, vl53l0x_sigma.o(i.SetupSingleShot))
 <BR><BR>[Stack]<UL><LI>Max Depth = 924<LI>Call Chain = SetupSingleShot &rArr; VL53L0X_StaticInit &rArr; VL53L0X_perform_ref_spad_management &rArr; perform_ref_signal_measurement &rArr; VL53L0X_PerformSingleRangingMeasurement &rArr; VL53L0X_GetRangingMeasurementData &rArr; VL53L0X_get_pal_range_status &rArr; VL53L0X_calc_sigma_estimate &rArr; VL53L0X_calc_dmax
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
@@ -1037,7 +1037,7 @@ Global Symbols
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_RdByte
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_GetDeviceParameters
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[cc]"></a>VL53L0X_GetDeviceMode</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, vl53l0x_api.o(i.VL53L0X_GetDeviceMode))
@@ -1277,7 +1277,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_I2CWrite
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_I2CRead
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_StaticInit
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;perform_ref_signal_measurement
 <LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_sequence_step_timeout
@@ -1305,7 +1305,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_WrByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[be]"></a>VL53L0X_SetDeviceMode</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, vl53l0x_api.o(i.VL53L0X_SetDeviceMode))
@@ -1419,7 +1419,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_I2CWrite
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 <LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_StaticInit
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_SetDeviceAddress
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_DataInit
@@ -1736,8 +1736,8 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 92<LI>Call Chain = XNUCLEO53L0A1_I2C1Configure &rArr; _I2cFailRecover &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_I2cFailRecover
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Init
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_I2cFailRecover
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XNUCLEO53L0A1_Init
 </UL>
@@ -1750,7 +1750,7 @@ Global Symbols
 <LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ExpanderWR
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ExpanderRd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[73]"></a>XNUCLEO53L0A1_ResetId</STRONG> (Thumb, 184 bytes, Stack size 16 bytes, x-nucleo-53l0a1.o(i.XNUCLEO53L0A1_ResetId))
@@ -1758,7 +1758,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ExpanderWR
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[71]"></a>XNUCLEO53L0A1_SetDisplayString</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, x-nucleo-53l0a1.o(i.XNUCLEO53L0A1_SetDisplayString))
@@ -1768,7 +1768,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RangeDemo
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[e8]"></a>_I2CRead</STRONG> (Thumb, 46 bytes, Stack size 32 bytes, vl53l0x_platform.o(i._I2CRead))
@@ -1809,7 +1809,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RangeDemo
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Error_Handler
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 </UL>
 
 <P><STRONG><a name="[128]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
@@ -1875,12 +1875,12 @@ Global Symbols
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VL53L0X_perform_ref_spad_management
 </UL>
 
-<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 948<LI>Call Chain = main &rArr; RangeDemo &rArr; SetupSingleShot &rArr; VL53L0X_StaticInit &rArr; VL53L0X_perform_ref_spad_management &rArr; perform_ref_signal_measurement &rArr; VL53L0X_PerformSingleRangingMeasurement &rArr; VL53L0X_GetRangingMeasurementData &rArr; VL53L0X_get_pal_range_status &rArr; VL53L0X_calc_sigma_estimate &rArr; VL53L0X_calc_dmax
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RangeDemo
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensors
+<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DetectSensor
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
@@ -2075,8 +2075,8 @@ Local Symbols
 <P><STRONG><a name="[10f]"></a>_ExpanderWR</STRONG> (Thumb, 60 bytes, Stack size 48 bytes, x-nucleo-53l0a1.o(i._ExpanderWR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = _ExpanderWR &rArr; HAL_I2C_Master_Transmit &rArr; I2C_WaitOnTXISFlagUntilTimeout &rArr; I2C_IsAcknowledgeFailed
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
+<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_I2C_Master_Transmit
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XNUCLEO53L0A1_ResetId
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;XNUCLEO53L0A1_Init
@@ -2104,9 +2104,9 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[112]"></a>_printf_core</STRONG> (Thumb, 996 bytes, Stack size 104 bytes, printf8.o(i._printf_core), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
+<BR><BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_pre_padding
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_post_padding
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0sprintf$8
 </UL>
